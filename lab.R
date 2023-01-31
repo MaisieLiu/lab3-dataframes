@@ -77,7 +77,7 @@ for(element in names(football)){
 ## if the variable is numeric
 for(element in names(football)){
   if(is.numeric(football[[element]])==TRUE){
-    cat(element,mean(football[[element]]),"\n")
+    cat(element,":",mean(football[[element]]),"\n")
   }
 }
 
@@ -119,11 +119,11 @@ salaries
 ## Retrieve values from your data frame to answer the following questions:
 ##
 ## What was the 2015 salary of employee 57
-salaries$salaries2022[salaries$employee =="Employee 57"]
-
+employee57 <- salaries$salaries2022[salaries$employee =="Employee 57"]
+employee57
 ## Now round the answer down to two digits after comma
 ## check out 'round()' function
-round(salaries$salaries2022[57],digits = 2)
+round(employee57,digits = 2)
 ## How many employees got a raise?
 length(salaries$raise[salaries$raise > 0])
 
@@ -132,7 +132,8 @@ length(salaries$raise[salaries$raise > 0])
 max(round(salaries$raise[salaries$raise > 0],digits = 2))
 
 ## What was the name of the employee who recieved the highest raise?
-salaries$employees[max(salaries$raise)]
+highestraise <- max(salaries$raise)
+salaries$employees[salaries$raise==highestraise]
 
 ## What was the average salary increase?
 ## Round the number!
